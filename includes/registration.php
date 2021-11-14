@@ -19,10 +19,6 @@ if (isset($_POST["submit"])) {
     } else if ($password !== $confirm) {
         header("Location: ../index.php?error=passwordsDontMatch");
         exit;
-    } 
-    elseif (empty($accepted)) {
-        header("Location: ../index.php?error=TOSnotaccepted");
-        exit;
     }
     else {
         $password = md5($confirm);
@@ -33,5 +29,6 @@ if (isset($_POST["submit"])) {
         mysqli_query($connection, $sql);
         header("Location: ../index.php?registration=success");
     }
+    
 }
 

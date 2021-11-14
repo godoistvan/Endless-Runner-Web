@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="form-check d-flex justify mb-5">
-                <input class="form-check-input me-2" type="checkbox" value="" name="accepted" required/>
+                <input class="form-check-input me-2" type="checkbox" value="1" name="accepted" required/>
                   <label class="form-check-label content-center" for="form2Example3g">
                     I agree to the <a href="#!" class="text-body"><u>Terms of service</u></a>
                   </label>

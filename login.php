@@ -19,20 +19,20 @@ require_once'includes/header.php';
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Login to your account </h2>
 
-              <form>
+              <form action="includes/login.php" method="POST">
 
                 <div class="form-outline mb-4">
-                  <input type="text"  name="username"class="form-control form-control-lg" placeholder="Enter your username" />
+                  <input type="text"  name="username"class="form-control form-control-lg" placeholder="Enter your username" required />
                   
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="password"  name="password" class="form-control form-control-lg" placeholder="Enter your password" />
+                  <input type="password"  name="password" class="form-control form-control-lg" placeholder="Enter your password" required/>
                   
                 </div>
 
                 <div class="d-flex justify-content-center">
-                  <button type="submit"  name="submit"class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Login</button>
+                  <button type="submit"  name="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Login</button>
                 </div>
 
 
