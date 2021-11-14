@@ -25,34 +25,34 @@
               <form action="includes/registration.php" method="POST">
 
                 <div class="form-outline mb-4">
-                  <input type="text"  name="username"class="form-control form-control-lg" placeholder="Enter your username" />
+                  <input type="text"  name="username" class="form-control form-control-lg" placeholder="Enter your username" required/>
                   
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="email"  name="email"class="form-control form-control-lg"placeholder="Enter your Email" />
+                  <input type="email"  name="email" class="form-control form-control-lg"placeholder="Enter your Email" required/>
                   
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="password"  name="password" class="form-control form-control-lg" placeholder="Enter your password" />
+                  <input type="password"  name="password" class="form-control form-control-lg" placeholder="Enter your password" required/>
                   
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="password"  name="password1"class="form-control form-control-lg" placeholder="Repeat your password"/>
+                  <input type="password"  name="password1"class="form-control form-control-lg" placeholder="Repeat your password" required/>
                   
                 </div>
 
                 <div class="form-check d-flex justify mb-5">
-                <input class="form-check-input me-2" type="checkbox" value="" name="accepted"id="form2Example3cg"/>
+                <input class="form-check-input me-2" type="checkbox" value="" name="accepted" required/>
                   <label class="form-check-label content-center" for="form2Example3g">
                     I agree to the <a href="#!" class="text-body"><u>Terms of service</u></a>
                   </label>
                 </div>
 
                 <div class="d-flex justify-content-center">
-                  <button type="submit"  name="submit"class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                  <button type="submit"  name="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
                 </div>
 
                 <p class="text-center text-muted mt-5 mb-0">Already have an account? <a href="#!" class="fw-bold text-body"><u>Login here</u></a></p>
@@ -67,4 +67,24 @@
   </div>
 </section>
 </body>
+<?php
+    if (isset($_POST['submit'])) {
+        $password = $_POST['password'];
+        $password1 = $_POST['password1'];
+        if ($password != $password1) {
+            echo '<script>alert("The passwords doesnt match")</script>';
+        }
+        if ($password == $password1) {
+            $uppercase = preg_match('@[A-Z]@', $password);
+            $lowercase = preg_match('@[a-z]@', $password);
+            $number    = preg_match('@[0-9]@', $password);
+            if(!$uppercase || !$lowercase || !$number || strlen($password) < 8) {
+                echo 'Password should be at least 8 characters in length and should include at least one upper case letter and one number';
+            }else{
+                echo 'Strong password.';
+            }
+        }
+    }
+
+    ?>
 </html>

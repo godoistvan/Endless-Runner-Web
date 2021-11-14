@@ -2,6 +2,6 @@
 $eleres = 'localhost';
 $felhasznalonev = 'root';
 $jelszo = '';
-$adatbazisNev = 'php101';
+$adatbazisNev = 'endlessrunner';
 
 $connection = mysqli_connect($eleres, $felhasznalonev, $jelszo, $adatbazisNev);
