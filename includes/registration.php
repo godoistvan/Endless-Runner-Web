@@ -27,7 +27,7 @@ if (isset($_POST["submit"])) {
         VALUES ('$username', '$email', '$password');";
 
         mysqli_query($connection, $sql);
-        header("Location: ../index.php?registration=success");
+        header("Location: ../login.php");
     }
     
 }
