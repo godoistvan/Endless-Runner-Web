@@ -1,3 +1,6 @@
+<?php
+require_once 'includes/navbarheader.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,7 +58,7 @@
                   <button type="submit"  name="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
                 </div>
 
-                <p class="text-center text-muted mt-5 mb-0">Already have an account? <a href="#!" class="fw-bold text-body"><u>Login here</u></a></p>
+                <p class="text-center text-muted mt-5 mb-0">Already have an account? <a href="login.php" class="fw-bold text-body"><u>Login here</u></a></p>
 
               </form>
 

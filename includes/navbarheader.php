@@ -41,6 +41,24 @@
           <a class="dropdown-item" href="apply.php">Apply for a job!</a>
         </div>
       </li>
+      <li class="nav-item">
+      <div class="form-outline" style="text-align:right">
+                  <input type="text"  name="username"class="form-control form-control-md" placeholder="Enter your username" required />
+                  
+                </div>
+      </li>
+      <li class="nav-item">
+      <div class="form-outline" style="text-align:right">
+                  <input type="password"  name="password" class="form-control form-control-md" placeholder="Enter your password" required/>
+                  
+                </div>
+
+      </li>
+      <li class="nav-item">
+      <div style="text-align:right">
+                  <button type="submit"  name="submit" class="btn btn-success btn-block btn-md gradient-custom-4 text-body">Login</button>
+                </div>
+      </li>
     </ul>
   </div>
 </nav>
