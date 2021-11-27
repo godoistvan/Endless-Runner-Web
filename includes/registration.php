@@ -4,7 +4,7 @@ if (isset($_POST["submit"])) {
 
     require_once "database.php";
 
-    //SQL injection elleni védekezése
+    
     $username = mysqli_real_escape_string($connection, $_POST["username"]);
     $email = mysqli_real_escape_string($connection, $_POST["email"]);
     $password = mysqli_real_escape_string($connection, $_POST["password"]);
