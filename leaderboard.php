@@ -14,17 +14,21 @@ require_once 'includes/navbarheader.php';
 <body>
     <div class="mask d-flex align-items-center h-100 gradient-custom-3">
         <div class="container h-100">
+
             <div class="row d-flex justify-content-center align-items-center h-50">
                 <div class="col-4 col-md-4 col-lg-4 col-xl-5">
                     <div class="card" style="border-radius: 15px;">
                         <div class="card-body p-2">
+                            <form action="" method="post">
+                                <input type="text" name="searchplayer" id="searchplayer" placeholder="Enter the name of a player" class="form-control form-control-lg">
+                                <button type="submit" class="btn btn-primary" name="search">Search</button>
+                            </form>
                             <?php
                             require_once("includes/database.php");
                             $sql = "SELECT `userName`,`userHighscore`, `userRank`, `userElo` FROM `users` WHERE 1";
                             $result = $connection->query($sql);
                             if ($result->num_rows > 0) {
                                 echo '<table class="table col-md-7"><tr><th>Name</th><th>Highscore</th><th>Rank</th><th>Elo</th></tr>';
-                                // output data of each row
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<tr><td>" . $row["userName"] . "</td><td>" . $row["userHighscore"] . " </td><td>" . $row["userRank"] . "</td><td>" . $row["userElo"] . "</tr>";
                                 }
