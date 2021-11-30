@@ -12,16 +12,17 @@ require_once 'includes/navbarheader.php';
 </head>
 
 <body>
-    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-        <div class="container h-100">
 
-            <div class="row d-flex justify-content-center align-items-center h-50">
-                <div class="col-4 col-md-4 col-lg-4 col-xl-5">
-                    <div class="card" style="border-radius: 15px;">
-                        <div class="card-body p-2">
                             <?php
                             require_once("includes/database.php");
-                            echo'                            <form action="leaderboard.php" method="post">
+                            echo'    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+                            <div class="container h-100">
+                    
+                                <div class="row d-flex justify-content-center align-items-center h-50">
+                                    <div class="col-4 col-md-4 col-lg-4 col-xl-4">
+                                        <div class="card" style="border-radius: 15px;">
+                                            <div class="card-body p-2">';
+                            echo ' <form action="leaderboard.php" method="post">
                             <input type="text" name="searchplayer" id="searchplayer" placeholder="Enter the name of a player" class="form-control form-control-lg">
                             <button type="submit" class="btn btn-primary" name="search">Search</button>
                         </form>';
@@ -36,8 +37,18 @@ require_once 'includes/navbarheader.php';
                                         
                                     }
                                 }
+                                echo'                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>';
                             }
                             else {
+                                echo'    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+                            <div class="container h-100">
+                    
+                                <div class="row d-flex justify-content-center align-items-center h-50">';
                                 $sql = "SELECT `userName`,`userHighscore`, `userRank`, `userElo` FROM `users` WHERE 1";
                                 $result = $connection->query($sql);
                                 
@@ -47,18 +58,21 @@ require_once 'includes/navbarheader.php';
                                         echo "<tr><td>" . $row["userName"] . "</td><td>" . $row["userHighscore"] . " </td><td>" . $row["userRank"] . "</td><td>" . $row["userElo"] . "</tr>";
                                     }
                                     echo "</table>";
-                                } else {
+                                    echo'                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>';
+                                } 
+                                else {
                                     echo "0 results";
                                 }
                             }
                             ?>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+
 </body>
 
 </html>
