@@ -19,7 +19,7 @@ require_once 'includes/navbarheader.php';
                 <div class="col-4 col-md-4 col-lg-4 col-xl-5">
                     <div class="card" style="border-radius: 15px;">
                         <div class="card-body p-2">
-                            <form action="" method="post">
+                            <form action="includes/search.php" method="post">
                                 <input type="text" name="searchplayer" id="searchplayer" placeholder="Enter the name of a player" class="form-control form-control-lg">
                                 <button type="submit" class="btn btn-primary" name="search">Search</button>
                             </form>
