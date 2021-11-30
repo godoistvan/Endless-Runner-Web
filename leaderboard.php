@@ -19,24 +19,40 @@ require_once 'includes/navbarheader.php';
                 <div class="col-4 col-md-4 col-lg-4 col-xl-5">
                     <div class="card" style="border-radius: 15px;">
                         <div class="card-body p-2">
-                            <form action="includes/search.php" method="post">
-                                <input type="text" name="searchplayer" id="searchplayer" placeholder="Enter the name of a player" class="form-control form-control-lg">
-                                <button type="submit" class="btn btn-primary" name="search">Search</button>
-                            </form>
                             <?php
                             require_once("includes/database.php");
-                            $sql = "SELECT `userName`,`userHighscore`, `userRank`, `userElo` FROM `users` WHERE 1";
-                            $result = $connection->query($sql);
-                            if ($result->num_rows > 0) {
-                                echo '<table class="table col-md-7"><tr><th>Name</th><th>Highscore</th><th>Rank</th><th>Elo</th></tr>';
-                                while ($row = $result->fetch_assoc()) {
-                                    echo "<tr><td>" . $row["userName"] . "</td><td>" . $row["userHighscore"] . " </td><td>" . $row["userRank"] . "</td><td>" . $row["userElo"] . "</tr>";
+                            echo'                            <form action="leaderboard.php" method="post">
+                            <input type="text" name="searchplayer" id="searchplayer" placeholder="Enter the name of a player" class="form-control form-control-lg">
+                            <button type="submit" class="btn btn-primary" name="search">Search</button>
+                        </form>';
+                            if (isset($_POST["search"])) {
+                                $searched = mysqli_real_escape_string($connection, $_POST['searchplayer']);
+                                $sql = "SELECT `userName`,`userHighscore`, `userRank`, `userElo` FROM `users` WHERE `userName`='$searched';";
+                                $result = mysqli_query($connection, $sql);
+                                if (mysqli_num_rows($result) == 1) {
+                                    echo '<table class="table col-md-7"><tr><th>Name</th><th>Highscore</th><th>Rank</th><th>Elo</th></tr>';
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo "<tr><td>" . $row["userName"] . "</td><td>" . $row["userHighscore"] . " </td><td>" . $row["userRank"] . "</td><td>" . $row["userElo"] . "</tr>";
+                                        
+                                    }
                                 }
-                                echo "</table>";
-                            } else {
-                                echo "0 results";
+                            }
+                            else {
+                                $sql = "SELECT `userName`,`userHighscore`, `userRank`, `userElo` FROM `users` WHERE 1";
+                                $result = $connection->query($sql);
+                                
+                                if ($result->num_rows > 0) {
+                                    echo '<table class="table col-md-7"><tr><th>Name</th><th>Highscore</th><th>Rank</th><th>Elo</th></tr>';
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo "<tr><td>" . $row["userName"] . "</td><td>" . $row["userHighscore"] . " </td><td>" . $row["userRank"] . "</td><td>" . $row["userElo"] . "</tr>";
+                                    }
+                                    echo "</table>";
+                                } else {
+                                    echo "0 results";
+                                }
                             }
                             ?>
+
                         </div>
                     </div>
                 </div>
