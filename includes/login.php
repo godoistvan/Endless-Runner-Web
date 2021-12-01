@@ -16,6 +16,6 @@ if (isset($_POST['submit'])) {
     if (mysqli_num_rows($result) == 1) {
         $_SESSION['username'] = $username;      
         
-        header("Location: ../login.php?login=ok");
+        header("Location: ../landingpage.php?login=ok");
     }
 }

@@ -42,14 +42,15 @@
         </div>
       </li>
       <li class="nav-item">
+        <form action="includes/login.php" method="post">
       <div class="form-outline" style="text-align:right">
-                  <input type="text"  name="username"class="form-control form-control-md" placeholder="Enter your username" required />
+                  <input type="text"  name="username"class="form-control form-control-md" placeholder="Enter your username" name="username" required />
                   
                 </div>
       </li>
       <li class="nav-item">
       <div class="form-outline" style="text-align:right">
-                  <input type="password"  name="password" class="form-control form-control-md" placeholder="Enter your password" required/>
+                  <input type="password"  name="password" class="form-control form-control-md" placeholder="Enter your password" name="password" required/>
                   
                 </div>
 
@@ -58,6 +59,7 @@
       <div style="text-align:right">
                   <button type="submit"  name="submit" class="btn btn-success btn-block btn-md gradient-custom-4 text-body">Login</button>
                 </div>
+                </form>
       </li>
     </ul>
   </div>
