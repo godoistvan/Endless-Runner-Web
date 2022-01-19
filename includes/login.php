@@ -7,7 +7,7 @@ if (isset($_POST['submit'])) {
     $username=mysqli_real_escape_string($connection,$_POST['username']);
     $password=mysqli_real_escape_string($connection,$_POST['password']);
     if (empty($username) || empty($password)) {
-        header("Location: ../index.php?error=emptyFields");
+        header("Location: ../leaderboard.php?error=emptyFields");
     }
     $password = md5($password);
     $sql = "SELECT * FROM users WHERE userName = '$username' && userPassword = '$password';";
@@ -16,6 +16,9 @@ if (isset($_POST['submit'])) {
     if (mysqli_num_rows($result) == 1) {
         $_SESSION['username'] = $username;      
         
-        header("Location: ../landingpage.php?login=ok");
+        header("Location: ../leaderboard.php?login=ok");
+    }
+    else {
+        header("Location: ../leaderboard.php?login=bitsus");
     }
 }
