@@ -106,15 +106,18 @@ $result=mysqli_query($connection,$sql);
       </div>
       <div class="row">
         <?php
+        $valami=2;
                 while ($row = mysqli_fetch_assoc($result)) 
                 {
+                  if ($row['onsale']==1) 
+                  {
                     echo'<div class="col-3">
                     <div class="card">
                         <img src="img/'.$row['img'].'" alt="#" style="min-height: 40vh; max-height: 40vh;">
                         <div class="card-body" style="min-height: 25vh; max-height: 25vh;">
                             <h5 class="card-title">'.$row['name'].'</h5>
                             <p class="blockquote">'.$row['description'].'</p>
-                            <p class="blockquote-footer">'.$row['price'].' Ecoin</p>
+                            <p class="blockquote-footer">'.$row['price']/$valami.' Ecoin 50% off!</p>
                             <form action="includes/kosar.php" method="POST">
                                 <div class="input-group">
                                     <input type="number" name="darabszam" id="darabszam_input" class="form-control" value="1">
@@ -125,6 +128,8 @@ $result=mysqli_query($connection,$sql);
                         </div>
                     </div>
                 </div>';
+                  }
+
                 }
         ?>
 
