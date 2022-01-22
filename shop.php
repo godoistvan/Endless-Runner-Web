@@ -1,5 +1,8 @@
 <?php
 require_once 'includes/navbarheader.php';
+$connection=mysqli_connect('localhost','root','','endlessrunner1');
+$sql = "SELECT * FROM items;";
+$result=mysqli_query($connection,$sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -101,82 +104,30 @@ require_once 'includes/navbarheader.php';
       <div class="col-md-12" style="text-align:center">
         <h1>Weekly deals</h1>
       </div>
-      <div class="col-3">
-        <div class="card">
-          <img src="img/placeholder.jpg" alt="#" style="min-height: 25vh; max-height: 25vh ;">
-          <div class="card-body">
-            <div style="min-height: 20vh; max-height: 20vh;">
-              <h5 class="card-title"></h5>
-              <p class="blockquote">X character</p>
-              <p class="blockquote-footer">X skin/weapon skin</p>
-            </div>
-            <form action="includes/kosar.php" method="POST">
-              <div class="input-group">
-                <input type="number" name="darabszam" id="darabszam_input" class="form-control" value="1">
-                <button type="submit" name="submit" class="btn btn-primary"><i class="bi bi-cart-plus-fill"></i></button>
-                <input type="hidden" name="termekID" value="">
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="col-3">
-        <div class="card">
-          <img src="img/placeholder.jpg" alt="#" style="min-height: 25vh; max-height: 25vh ;">
-          <div class="card-body">
-            <div style="min-height: 20vh; max-height: 20vh;">
-              <h5 class="card-title"></h5>
-              <p class="blockquote"> X character </p>
-              <p class="blockquote-footer">X skin/weapon skin</p>
-            </div>
-            <form action="includes/kosar.php" method="POST">
-              <div class="input-group">
-                <input type="number" name="darabszam" id="darabszam_input" class="form-control" value="1">
-                <button type="submit" name="submit" class="btn btn-primary"><i class="bi bi-cart-plus-fill"></i></button>
-                <input type="hidden" name="termekID" value="">
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="col-3">
-        <div class="card">
-          <img src="img/placeholder.jpg" alt="#" style="min-height: 25vh; max-height: 25vh ;">
-          <div class="card-body">
-            <div style="min-height: 20vh; max-height: 20vh;">
-              <h5 class="card-title"></h5>
-              <p class="blockquote">X character </p>
-              <p class="blockquote-footer">X skin/weapon skin</p>
-            </div>
-            <form action="includes/kosar.php" method="POST">
-              <div class="input-group">
-                <input type="number" name="darabszam" id="darabszam_input" class="form-control" value="1">
-                <button type="submit" name="submit" class="btn btn-primary"><i class="bi bi-cart-plus-fill"></i></button>
-                <input type="hidden" name="termekID" value="">
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="col-3">
-        <div class="card">
-          <img src="img/placeholder.jpg" alt="#" style="min-height: 25vh; max-height: 25vh ;">
-          <div class="card-body">
-            <div style="min-height: 20vh; max-height: 20vh;">
-              <h5 class="card-title"></h5>
-              <p class="blockquote">X character</p>
-              <p class="blockquote-footer">X skin/weapon skin</p>
-            </div>
-            <form action="includes/kosar.php" method="POST">
-              <div class="input-group">
-                <input type="number" name="darabszam" id="darabszam_input" class="form-control" value="1">
-                <button type="submit" name="submit" class="btn btn-primary"><i class="bi bi-cart-plus-fill"></i></button>
-                <input type="hidden" name="termekID" value="">
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+      <div class="row">
+        <?php
+                while ($row = mysqli_fetch_assoc($result)) 
+                {
+                    echo'<div class="col-3">
+                    <div class="card">
+                        <img src="img/'.$row['img'].'" alt="#" style="min-height: 40vh; max-height: 40vh;">
+                        <div class="card-body" style="min-height: 25vh; max-height: 25vh;">
+                            <h5 class="card-title">'.$row['name'].'</h5>
+                            <p class="blockquote">'.$row['description'].'</p>
+                            <p class="blockquote-footer">'.$row['price'].' Ecoin</p>
+                            <form action="includes/kosar.php" method="POST">
+                                <div class="input-group">
+                                    <input type="number" name="darabszam" id="darabszam_input" class="form-control" value="1">
+                                    <button type="submit" name="submit" class="btn btn-primary"><i class="bi bi-cart-plus-fill"></i></button>
+                                    <input type="hidden" name="termekID" value="'.$row['id'].'">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>';
+                }
+        ?>
+
     </div>
   </div>
 </body>
