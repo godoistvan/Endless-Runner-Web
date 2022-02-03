@@ -46,13 +46,18 @@ require_once 'includes/navbarheader.php';
                     echo '    <div class="col-5 col-md-5 col-lg-5 col-xl-5">
                                 <div class="card" style="border-radius: 15px;">
                                     <div class="card-body p-2">';
-                    $sql = "SELECT `userName`,`userHighscore`, `userRank`, `userElo` FROM `users` WHERE 1";
+                    $sql = "SELECT users.userName, userhighscore.highscore,achievableranks.rank,elo.elo FROM `users` 
+                    INNER JOIN `userhighscore` ON `userhighscore`.`userid` = `users`.`userID`
+                    INNER JOIN `elo` ON `elo`.`userid` = `users`.`userID`
+                    INNER JOIN `ranks` ON `ranks`.`userid` = `users`.`userID`
+                    INNER JOIN `achievableranks` ON `ranks`.`rankid` = `achievableranks`.`id`
+                    ORDER BY userhighscore.highscore DESC";
                     $result = $connection->query($sql);
 
                     if ($result->num_rows > 0) {
                         echo '<table class="table col-md-7"><tr><th>Name</th><th>Highscore</th><th>Rank</th><th>Elo</th></tr>';
                         while ($row = $result->fetch_assoc()) {
-                            echo "<tr><td>" . $row["userName"] . "</td><td>" . $row["userHighscore"] . " </td><td>" . $row["userRank"] . "</td><td>" . $row["userElo"] . "</tr>";
+                            echo "<tr><td>" . $row["userName"] . "</td><td>" . $row["highscore"] . " </td><td>" . $row["rank"] . "</td><td>" . $row["elo"] . "</tr>";
                         }
                         echo "</table>";
                         echo '                        </div>

@@ -33,7 +33,6 @@ $result=mysqli_query($connection,$sql);
             </div>
             <form action="includes/kosar.php" method="POST">
               <div class="input-group">
-                <input type="number" name="darabszam" id="darabszam_input" class="form-control" value="1">
                 <button type="submit" name="submit" class="btn btn-primary"><i class="bi bi-cart-plus-fill"></i></button>
                 <input type="hidden" name="termekID" value="">
               </div>
@@ -52,7 +51,6 @@ $result=mysqli_query($connection,$sql);
             </div>
             <form action="includes/kosar.php" method="POST">
               <div class="input-group">
-                <input type="number" name="darabszam" id="darabszam_input" class="form-control" value="1">
                 <button type="submit" name="submit" class="btn btn-primary"><i class="bi bi-cart-plus-fill"></i></button>
                 <input type="hidden" name="termekID" value="">
               </div>
@@ -71,7 +69,6 @@ $result=mysqli_query($connection,$sql);
             </div>
             <form action="includes/kosar.php" method="POST">
               <div class="input-group">
-                <input type="number" name="darabszam" id="darabszam_input" class="form-control" value="1">
                 <button type="submit" name="submit" class="btn btn-primary"><i class="bi bi-cart-plus-fill"></i></button>
                 <input type="hidden" name="termekID" value="">
               </div>
@@ -90,7 +87,6 @@ $result=mysqli_query($connection,$sql);
             </div>
             <form action="includes/kosar.php" method="POST">
               <div class="input-group">
-                <input type="number" name="darabszam" id="darabszam_input" class="form-control" value="1">
                 <button type="submit" name="submit" class="btn btn-primary"><i class="bi bi-cart-plus-fill"></i></button>
                 <input type="hidden" name="termekID" value="">
               </div>
@@ -120,7 +116,6 @@ $result=mysqli_query($connection,$sql);
                             <p class="blockquote-footer">'.$row['price']/$valami.' Ecoin 50% off!</p>
                             <form action="includes/kosar.php" method="POST">
                                 <div class="input-group">
-                                    <input type="number" name="darabszam" id="darabszam_input" class="form-control" value="1">
                                     <button type="submit" name="submit" class="btn btn-primary"><i class="bi bi-cart-plus-fill"></i></button>
                                     <input type="hidden" name="termekID" value="'.$row['id'].'">
                                 </div>

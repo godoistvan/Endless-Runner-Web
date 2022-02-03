@@ -19,6 +19,10 @@ if (isset($_POST['submit'])) {
         header("Location: ../leaderboard.php?login=ok");
     }
     else {
-        header("Location: ../leaderboard.php?login=bitsus");
+        echo 'error';
+        //header("Location: ../leaderboard.php?login=bitsus");
     }
+}
+else {
+    echo'error';
 }

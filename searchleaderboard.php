@@ -23,14 +23,22 @@ require_once 'includes/navbarheader.php';
                 if (isset($_POST["submit"])) 
                 {
                     $searched=$_POST['searchplayer'];
-                    $sql = "SELECT `userName`,`userHighscore`, `userRank`, `userElo` FROM `users` WHERE `userName`='$searched';";
+                    $sql = "SELECT users.userName, userhighscore.highscore,achievableranks.rank,elo.elo FROM `users` 
+                    INNER JOIN `userhighscore` ON `userhighscore`.`userid` = `users`.`userID`
+                    INNER JOIN `elo` ON `elo`.`userid` = `users`.`userID`
+                    INNER JOIN `ranks` ON `ranks`.`userid` = `users`.`userID`
+                    INNER JOIN `achievableranks` ON `ranks`.`rankid` = `achievableranks`.`id`
+                    WHERE users.userName='$searched'";
                     
                     $result = mysqli_query($connection, $sql);
                     if (mysqli_num_rows($result) == 1) {
                         echo '<table class="table col-md-7"><tr><th>Name</th><th>Highscore</th><th>Rank</th><th>Elo</th></tr>';
                         while ($row = $result->fetch_assoc()) {
-                            echo "<tr><td>" . $row["userName"] . "</td><td>" . $row["userHighscore"] . " </td><td>" . $row["userRank"] . "</td><td>" . $row["userElo"] . "</tr>";
+                            echo "<tr><td>" . $row["userName"] . "</td><td>" . $row["highscore"] . " </td><td>" . $row["rank"] . "</td><td>" . $row["elo"] . "</tr>";
                         }
+                    }
+                    else{
+                        echo "User not found";
                     }
                     echo '                        </div>
                                 </div>
