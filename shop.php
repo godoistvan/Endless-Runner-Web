@@ -11,7 +11,8 @@ $result = mysqli_query($connection, $sql);
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Shop</title>
+  <link rel="stylesheet" href="css/popup.css">
 </head>
 
 <body>
@@ -124,62 +125,17 @@ $result = mysqli_query($connection, $sql);
           }
         }
         ?>
-
       </div>
-      <div class="row">
-    <table class="table table-stripped">
-        <thead>
-            <th>ID</th>
-            <th>Név</th>
-            <th>Törlés</th>
-        </thead>
-        <tbody>
-
-            <?php
-
-            $osszesen = 0;
-            if (isset($_SESSION['kosar'])) {
-
-                foreach ($_SESSION['kosar'] as $key => $value) {
-                  var_dump($key);
-                    $sql2 = "SELECT * FROM items WHERE id = 2";
-                    $result2 = mysqli_query($connection, $sql2);
-                    $ertekek = mysqli_fetch_assoc($result2);
-                    var_dump($sql2);
-                    var_dump($result2);
-                    var_dump($ertekek);
-                    $osszesen += $value * $ertekek['price']/2;
-
-                    echo ' <tr>
-                        <td>' . $ertekek['id'] . '</td>
-                        <td>' . $ertekek['name'] . '</td>
-                        <form action="includes/torles.php" method="POST">
-                            <td><button class="btn btn-danger" name="submit" type="submit">Törlés</button></td>
-                            <input type="hidden" value="' . $key . '" name="productID">
-                        </form>
-                    </tr>';
-                }
-            } else {
-                echo '<tr>
-                        <td>#</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>';
-            }
-            ?>
-
-        </tbody>
-        <tfoot>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Végösszeg: </td>
-                <td><?php echo number_format($osszesen, 0, '.', ' ') . 'eCoin'; ?></td>
-        </tfoot>
-    </table>
+      <script type="text/javascript" src="js/popup.js"></script>
+      <div class="popup" id="popup-1">
+        <div class="overlay"> </div>
+        <div class="content">
+          <div class="close-btn" onclick="togglepopup()">&times;></div>
+          <h1>Title</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores fugit aut, adipisci mollitia ullam accusamus illum ex dolor molestias officiis, quae necessitatibus eos laboriosam labore velit autem in fuga ad optio, molestiae dolorum non facilis praesentium quaerat. Nulla blanditiis nostrum tempore! Porro corrupti illum quisquam soluta neque laudantium labore quos?</p>
+        </div>
+      </div>
+      <button onclick="togglepopup()">Cucc</button>
     </div>
 </body>
 
