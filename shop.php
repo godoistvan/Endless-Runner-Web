@@ -29,8 +29,8 @@ $result = mysqli_query($connection, $sql);
           <div class="card-body">
             <div style="min-height: 20vh; max-height: 20vh;">
               <h5 class="card-title"></h5>
-              <p class="blockquote">500 insert currency name </p>
-              <p class="blockquote-footer">Buy 500 insert currency name here for only 5$ and get 30 insert currency name extra</p>
+              <p class="blockquote">500 Ecoin </p>
+              <p class="blockquote-footer">Buy 500 Ecoin here for only 5$ and get 30 insert currency name extra</p>
             </div>
             <form action="includes/kosar.php" method="POST">
               <div class="input-group">
@@ -47,8 +47,8 @@ $result = mysqli_query($connection, $sql);
           <div class="card-body">
             <div style="min-height: 20vh; max-height: 20vh;">
               <h5 class="card-title"></h5>
-              <p class="blockquote">1000 insert currency name </p>
-              <p class="blockquote-footer">Buy 1000 insert currency name here for only 10$ and get 150 insert currency name extra</p>
+              <p class="blockquote">1000 Ecoin </p>
+              <p class="blockquote-footer">Buy 1000 Ecoin for only 10$ and get 150 insert currency name extra</p>
             </div>
             <form action="includes/kosar.php" method="POST">
               <div class="input-group">
@@ -65,8 +65,8 @@ $result = mysqli_query($connection, $sql);
           <div class="card-body">
             <div style="min-height: 20vh; max-height: 20vh;">
               <h5 class="card-title"></h5>
-              <p class="blockquote">2000 insert currency name </p>
-              <p class="blockquote-footer">Buy 2000 insert currency name here for only 20$ and get 500 insert currency name extra</p>
+              <p class="blockquote">2000 Ecoin </p>
+              <p class="blockquote-footer">Buy 2000 Ecoin for only 20$ and get 500 insert currency name extra</p>
             </div>
             <form action="includes/kosar.php" method="POST">
               <div class="input-group">
@@ -83,8 +83,8 @@ $result = mysqli_query($connection, $sql);
           <div class="card-body">
             <div style="min-height: 20vh; max-height: 20vh;">
               <h5 class="card-title"></h5>
-              <p class="blockquote">5000 insert currency name </p>
-              <p class="blockquote-footer">Buy 5000 insert currency name here for only 50$ and get 1500 insert currency name extra</p>
+              <p class="blockquote">5000 Ecoin </p>
+              <p class="blockquote-footer">Buy 5000 Ecoin for only 50$ and get 1500 insert currency name extra</p>
             </div>
             <form action="includes/kosar.php" method="POST">
               <div class="input-group">
@@ -126,16 +126,6 @@ $result = mysqli_query($connection, $sql);
         }
         ?>
       </div>
-      <script type="text/javascript" src="js/popup.js"></script>
-      <div class="popup" id="popup-1">
-        <div class="overlay"> </div>
-        <div class="content">
-          <div class="close-btn" onclick="togglepopup()">&times;></div>
-          <h1>Title</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores fugit aut, adipisci mollitia ullam accusamus illum ex dolor molestias officiis, quae necessitatibus eos laboriosam labore velit autem in fuga ad optio, molestiae dolorum non facilis praesentium quaerat. Nulla blanditiis nostrum tempore! Porro corrupti illum quisquam soluta neque laudantium labore quos?</p>
-        </div>
-      </div>
-      <button onclick="togglepopup()">Cucc</button>
     </div>
 </body>
 

@@ -20,7 +20,7 @@ session_start();
 </head>
 
 <body>
-  <section class="vh-100 bg-image" style="background-image: url('https://mdbootstrap.com/img/Photos/new-templates/search-box/img4.jpg');">
+  <section class="vh-100 bg-image" style="background-image: url('img/background2.png  ');">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="index.php">Register</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,8 +42,8 @@ session_start();
               Aditional information
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="support.php">Contant Support</a>
-              <a class="dropdown-item" href="aboutus.php">About us</a>
+              <a class="dropdown-item disabled" href="support.php">Contant Support</a>
+              <a class="dropdown-item disabled" href="aboutus.php">About us</a>
               <a class="dropdown-item" href="apply.php">Apply for a job!</a>
             </div>
           </li>

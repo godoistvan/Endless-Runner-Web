@@ -26,7 +26,7 @@ require_once 'includes/navbarheader.php';
             <div style="min-height: 20vh; max-height: 20vh;">
               <h5 class="card-title"></h5>
               <p class="blockquote">Software engineer</p>
-              <p class="blockquote-footer">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat provident repellendus sed rerum. Odio, animi!</p>
+              <p class="blockquote-footer">Previous Unity experience to fill this job position</p>
               <button type="submit" class="btn btn-primary">Im interested</button>
             </div>
             

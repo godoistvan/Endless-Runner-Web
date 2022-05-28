@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
     }
     else {
 
-        header("Location: ../leaderboard.php?login=bitsus");
+        header("Location: ../leaderboard.php?login=wrongcredentials");
     }
 }
 else {

@@ -12,6 +12,8 @@ require_once 'includes/navbarheader.php';
 </head>
 
 <body>
+    <?php
+    ?>
     <div class="mask d-flex align-items-center h-100 gradient-custom-3">
         <div class="container h-100">
 
@@ -20,7 +22,7 @@ require_once 'includes/navbarheader.php';
                 <?php
                 require_once("includes/database.php");
                 echo '
-                                    <div class="col-6 col-md-6 col-lg-6 col-xl-6">
+                                    <div class="col-12 col-md-6 col-lg-6 col-xl-6">
                                         <div class="card" style="border-radius: 5px;">
                                             <div class="card-body p-2">';
                echo'
