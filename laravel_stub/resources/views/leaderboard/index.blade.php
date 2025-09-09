@@ -16,10 +16,10 @@
               <tr><th>Name</th><th>Highscore</th><th>Rank</th><th>Elo</th></tr>
               @forelse($rows as $r)
                 <tr>
-                  <td>{{ $r->name }}</td>
-                  <td>{{ $r->highscore }}</td>
-                  <td>{{ $r->rank }}</td>
-                  <td>{{ $r->elo }}</td>
+                  <td>{{ is_array($r) ? $r['name'] : ($r->name ?? '') }}</td>
+                  <td>{{ is_array($r) ? $r['highscore'] : ($r->highscore ?? '') }}</td>
+                  <td>{{ is_array($r) ? $r['rank'] : ($r->rank ?? '') }}</td>
+                  <td>{{ is_array($r) ? $r['elo'] : ($r->elo ?? '') }}</td>
                 </tr>
               @empty
                 <tr><td colspan="4" class="text-muted">No results</td></tr>
@@ -32,4 +32,3 @@
   </div>
 </div>
 @endsection
-

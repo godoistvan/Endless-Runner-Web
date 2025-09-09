@@ -2,42 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Http\Requests\SearchLeaderboardRequest;
+use App\Services\LeaderboardService;
 
 class LeaderboardController extends Controller
 {
-    public function index()
+    public function index(LeaderboardService $service)
     {
-        $rows = DB::table('users')
-            ->join('userhighscore', 'userhighscore.userid', '=', 'users.userID')
-            ->join('elo', 'elo.userid', '=', 'users.userID')
-            ->join('ranks', 'ranks.userid', '=', 'users.userID')
-            ->join('achievableranks', 'ranks.rankid', '=', 'achievableranks.id')
-            ->select('users.userName as name', 'userhighscore.highscore', 'achievableranks.rank', 'elo.elo')
-            ->orderByDesc('userhighscore.highscore')
-            ->get();
-
+        $rows = $service->top();
         return view('leaderboard.index', compact('rows'));
     }
 
-    public function search(Request $request)
+    public function search(SearchLeaderboardRequest $request, LeaderboardService $service)
     {
-        $data = $request->validate([
-            'searchplayer' => ['required','string']
-        ]);
-
-        $rows = DB::table('users')
-            ->join('userhighscore', 'userhighscore.userid', '=', 'users.userID')
-            ->join('elo', 'elo.userid', '=', 'users.userID')
-            ->join('ranks', 'ranks.userid', '=', 'users.userID')
-            ->join('achievableranks', 'ranks.rankid', '=', 'achievableranks.id')
-            ->where('users.userName', $data['searchplayer'])
-            ->select('users.userName as name', 'userhighscore.highscore', 'achievableranks.rank', 'elo.elo')
-            ->get();
-
+        $data = $request->validated();
+        $rows = $service->search($data['searchplayer']);
         return view('leaderboard.index', compact('rows'))
             ->with('searched', $data['searchplayer']);
     }
 }
-

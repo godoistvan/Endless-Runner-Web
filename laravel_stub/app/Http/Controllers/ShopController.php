@@ -2,39 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Http\Requests\AddToCartRequest;
+use App\Http\Requests\RemoveFromCartRequest;
+use App\Models\Item;
+use App\Services\CartService;
 
 class ShopController extends Controller
 {
     public function index()
     {
-        $items = DB::table('items')->get();
+        $items = Item::query()->get();
         return view('shop.index', compact('items'));
     }
 
-    public function addToCart(Request $request)
+    public function addToCart(AddToCartRequest $request, CartService $cart)
     {
-        $data = $request->validate([
-            'termekID' => ['required','integer']
-        ]);
-
-        $cart = $request->session()->get('kosar', []);
-        $cart[$data['termekID']] = ($cart[$data['termekID']] ?? 0) + 1;
-        $request->session()->put('kosar', $cart);
+        $data = $request->validated();
+        $cart->add((int) $data['termekID']);
         return back()->with('status', 'Item added');
     }
 
-    public function removeFromCart(Request $request)
+    public function removeFromCart(RemoveFromCartRequest $request, CartService $cart)
     {
-        $data = $request->validate([
-            'productID' => ['required','integer']
-        ]);
-
-        $cart = $request->session()->get('kosar', []);
-        unset($cart[$data['productID']]);
-        $request->session()->put('kosar', $cart);
+        $data = $request->validated();
+        $cart->remove((int) $data['productID']);
         return back()->with('status', 'Item removed');
     }
 }
-

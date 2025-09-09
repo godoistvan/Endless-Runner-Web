@@ -27,6 +27,15 @@ Testing
 
 Notes
 
-- This scaffold replaces insecure MD5 password handling with Laravel’s bcrypt (`Hash::make`). You’ll need to re-hash existing user passwords or implement a one-time migration that accepts MD5 on first login and upgrades to bcrypt.
+- This scaffold replaces insecure MD5 password handling with Laravel’s bcrypt (`Hash::make`). You’ll need to re-hash existing user passwords or enable the commented one-time MD5 upgrade in `AuthService`.
 - Session cart is preserved using Laravel’s session. Items are read from `items` table like before.
-- Leaderboard queries are moved to Eloquent with explicit models; adjust table/column names if they differ.
+- Leaderboard queries are moved to a service/repository and Eloquent relationships; adjust table/column names if they differ.
+
+Architecture
+
+- Controllers delegate to services; validation handled by Form Requests.
+  - Services: `app/Services/*`, Repos: `app/Repositories/*`
+  - Requests: `app/Http/Requests/*`
+- Domain models with relations:
+  - `User hasOne UserHighscore`, `User hasOne Elo`, `User hasOne Rank`, `Rank belongsTo AchievableRank`
+- Cart uses a session-backed repository (`SessionCartRepository`). You can later bind `CartRepositoryInterface` to another implementation in a provider.
